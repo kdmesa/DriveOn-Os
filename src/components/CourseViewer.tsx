@@ -22,7 +22,7 @@ const courseData = {
         id: 1,
         title: 'Introduction to Putting Fundamentals',
         duration: '8:45',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
         pdfUrl: 'https://www.example.com/putting-fundamentals.pdf',
         description: 'Learn the basic principles of putting stance, grip, and alignment.',
         completed: false,
@@ -32,7 +32,7 @@ const courseData = {
         id: 2,
         title: 'Proper Putting Stance and Setup',
         duration: '12:30',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/LnVIVmKLWYg',
         pdfUrl: 'https://www.example.com/putting-stance-guide.pdf',
         description: 'Establish a consistent and comfortable putting stance.',
         completed: false,
@@ -42,7 +42,7 @@ const courseData = {
         id: 3,
         title: 'Reading Greens Like a Pro',
         duration: '15:20',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
         pdfUrl: 'https://www.example.com/green-reading-guide.pdf',
         description: 'Understand slope, grain, and speed to read greens accurately.',
         completed: false,
@@ -52,7 +52,7 @@ const courseData = {
         id: 4,
         title: 'Distance Control Techniques',
         duration: '18:15',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/LnVIVmKLWYg',
         pdfUrl: 'https://www.example.com/distance-control-workbook.pdf',
         description: 'Master the art of controlling putting distance and speed.',
         completed: false,
@@ -62,7 +62,7 @@ const courseData = {
         id: 5,
         title: 'Breaking Putts Mastery',
         duration: '14:45',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
         pdfUrl: 'https://www.example.com/breaking-putts-guide.pdf',
         description: 'Learn to handle left-to-right and right-to-left breaking putts.',
         completed: false,
@@ -82,7 +82,7 @@ const courseData = {
         id: 1,
         title: 'Short Game Fundamentals',
         duration: '10:30',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
         pdfUrl: 'https://www.example.com/short-game-fundamentals.pdf',
         description: 'Overview of short game techniques and club selection.',
         completed: false,
@@ -92,7 +92,7 @@ const courseData = {
         id: 2,
         title: 'Chipping Basics',
         duration: '16:45',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/LnVIVmKLWYg',
         pdfUrl: 'https://www.example.com/chipping-guide.pdf',
         description: 'Master the basic chipping technique for consistent results.',
         completed: false,
@@ -102,9 +102,169 @@ const courseData = {
         id: 3,
         title: 'Advanced Pitching Techniques',
         duration: '19:20',
-        videoUrl: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
         pdfUrl: 'https://www.example.com/pitching-techniques.pdf',
         description: 'Learn high and low pitch shots for various situations.',
+        completed: false,
+        preview: false
+      }
+    ]
+  },
+  2: {
+    title: 'Advanced Driving Techniques',
+    instructor: 'Sarah Wilson',
+    description: 'Unlock maximum distance and accuracy off the tee with advanced driving mechanics.',
+    totalLessons: 18,
+    duration: '4h 15m',
+    level: 'Advanced',
+    lessons: [
+      {
+        id: 1,
+        title: 'Driver Setup and Fundamentals',
+        duration: '14:30',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/driver-setup.pdf',
+        description: 'Master the proper setup for maximum driving distance.',
+        completed: false,
+        preview: true
+      },
+      {
+        id: 2,
+        title: 'Power Generation Mechanics',
+        duration: '16:45',
+        videoUrl: 'https://www.youtube.com/embed/LnVIVmKLWYg',
+        pdfUrl: 'https://www.example.com/power-mechanics.pdf',
+        description: 'Learn to generate explosive power through proper sequencing.',
+        completed: false,
+        preview: false
+      },
+      {
+        id: 3,
+        title: 'Accuracy and Control',
+        duration: '18:20',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/driving-accuracy.pdf',
+        description: 'Balance power with precision for consistent fairway hits.',
+        completed: false,
+        preview: false
+      }
+    ]
+  },
+  3: {
+    title: 'Course Management Strategy',
+    instructor: 'David Chen',
+    description: 'Learn to think strategically and make smarter decisions on the course.',
+    totalLessons: 15,
+    duration: '3h 45m',
+    level: 'Intermediate',
+    lessons: [
+      {
+        id: 1,
+        title: 'Strategic Thinking Basics',
+        duration: '12:15',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/strategy-basics.pdf',
+        description: 'Develop a strategic mindset for better course management.',
+        completed: false,
+        preview: true
+      },
+      {
+        id: 2,
+        title: 'Risk vs Reward Analysis',
+        duration: '15:30',
+        videoUrl: 'https://www.youtube.com/embed/LnVIVmKLWYg',
+        pdfUrl: 'https://www.example.com/risk-reward.pdf',
+        description: 'Learn when to be aggressive and when to play safe.',
+        completed: false,
+        preview: false
+      },
+      {
+        id: 3,
+        title: 'Shot Selection Mastery',
+        duration: '17:45',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/shot-selection.pdf',
+        description: 'Choose the right shot for every situation on the course.',
+        completed: false,
+        preview: false
+      }
+    ]
+  },
+  5: {
+    title: 'Mental Game & Focus',
+    instructor: 'Dr. Robert Kim',
+    description: 'Develop mental toughness and focus to perform under pressure.',
+    totalLessons: 10,
+    duration: '2h 15m',
+    level: 'All Levels',
+    lessons: [
+      {
+        id: 1,
+        title: 'Mental Game Fundamentals',
+        duration: '11:30',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/mental-fundamentals.pdf',
+        description: 'Build a strong mental foundation for consistent performance.',
+        completed: false,
+        preview: true
+      },
+      {
+        id: 2,
+        title: 'Pre-Shot Routine Development',
+        duration: '13:45',
+        videoUrl: 'https://www.youtube.com/embed/LnVIVmKLWYg',
+        pdfUrl: 'https://www.example.com/pre-shot-routine.pdf',
+        description: 'Create a consistent pre-shot routine for better focus.',
+        completed: false,
+        preview: false
+      },
+      {
+        id: 3,
+        title: 'Managing Pressure Situations',
+        duration: '16:20',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/pressure-management.pdf',
+        description: 'Stay calm and focused in high-pressure moments.',
+        completed: false,
+        preview: false
+      }
+    ]
+  },
+  6: {
+    title: 'Bunker Play Essentials',
+    instructor: 'Tom Anderson',
+    description: 'Master bunker shots with confidence and consistency.',
+    totalLessons: 8,
+    duration: '1h 45m',
+    level: 'Beginner',
+    lessons: [
+      {
+        id: 1,
+        title: 'Bunker Basics',
+        duration: '10:15',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/bunker-basics.pdf',
+        description: 'Learn the fundamentals of bunker play.',
+        completed: false,
+        preview: true
+      },
+      {
+        id: 2,
+        title: 'Greenside Bunker Technique',
+        duration: '14:30',
+        videoUrl: 'https://www.youtube.com/embed/LnVIVmKLWYg',
+        pdfUrl: 'https://www.example.com/greenside-bunker.pdf',
+        description: 'Master greenside bunker shots with proper technique.',
+        completed: false,
+        preview: true
+      },
+      {
+        id: 3,
+        title: 'Fairway Bunker Shots',
+        duration: '12:45',
+        videoUrl: 'https://www.youtube.com/embed/me5gjIUe1Ks',
+        pdfUrl: 'https://www.example.com/fairway-bunker.pdf',
+        description: 'Execute successful fairway bunker shots.',
         completed: false,
         preview: false
       }
