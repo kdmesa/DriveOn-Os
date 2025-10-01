@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Clock, User, Star, ChevronLeft, ChevronRight, CheckCircle, Target, TrendingUp, Video } from 'lucide-react';
 import { useAuth } from '../App';
 import Header from './Header';
+import { useBookings } from '../contexts/BookingContext';
 
 interface BookingPageProps {
   onNavigate: (page: string) => void;
@@ -81,6 +82,7 @@ const instructors = [
 
 const BookingPage: React.FC<BookingPageProps> = ({ onNavigate }) => {
   const { user } = useAuth();
+  const { addBooking } = useBookings();
   
   // Booking form state
   const [lessonType, setLessonType] = useState<string | null>(null);
@@ -169,28 +171,41 @@ const BookingPage: React.FC<BookingPageProps> = ({ onNavigate }) => {
   };
 
   const handleBookLesson = () => {
+    if (!selectedInstructor || !selectedDate || !selectedTime || !lessonType || !skillLevel) {
+      return;
+    }
+
     // Generate Zoom meeting details
     const zoomDetails = generateZoomMeeting();
     setGeneratedZoomDetails(zoomDetails);
     
-    // In production, save booking with Zoom details to database
-    const bookingData = {
-      userId: user?.id,
-      instructorId: selectedInstructor,
-      instructorName: selectedInstructorData?.name,
-      lessonType: selectedLessonType?.name,
+    const instructor = instructors.find(i => i.id === selectedInstructor);
+    const selectedLessonType = lessonTypes.find(lt => lt.id === lessonType);
+    const selectedDuration = durations.find(d => d.id === duration);
+    const selectedSkillLevel = skillLevels.find(sl => sl.id === skillLevel);
+    
+    // Create booking object
+    const newBooking = {
+      id: Math.random().toString(36).substring(2, 9),
+      instructorName: instructor?.name || '',
+      instructorImage: instructor?.image || '',
+      lessonType: selectedLessonType?.name || '',
       date: selectedDate,
       time: selectedTime,
-      duration: selectedDuration?.name,
-      skillLevel: selectedSkillLevel?.name,
+      duration: selectedDuration?.name || '',
+      skillLevel: selectedSkillLevel?.name || '',
       focusAreas: selectedFocusAreas,
       additionalNotes: additionalNotes,
       price: calculatePrice(),
-      status: 'upcoming',
-      ...zoomDetails
+      status: 'upcoming' as const,
+      zoomLink: zoomDetails.zoomLink,
+      meetingId: zoomDetails.meetingId,
+      meetingPassword: zoomDetails.meetingPassword
     };
     
-    console.log('Booking created with Zoom meeting:', bookingData);
+    // Save booking to context
+    addBooking(newBooking);
+    console.log('Booking created:', newBooking);
     
     setShowSuccess(true);
     setTimeout(() => {

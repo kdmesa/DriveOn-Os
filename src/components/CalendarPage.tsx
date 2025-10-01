@@ -2,85 +2,15 @@ import React, { useState } from 'react';
 import { Calendar as CalendarIcon, Clock, User, X, AlertCircle, ChevronLeft, ChevronRight, MapPin, Target, Video, Copy, Check } from 'lucide-react';
 import { useAuth } from '../App';
 import Header from './Header';
+import { useBookings, Booking } from '../contexts/BookingContext';
 
 interface CalendarPageProps {
   onNavigate: (page: string) => void;
 }
 
-interface Booking {
-  id: string;
-  instructorName: string;
-  instructorImage: string;
-  lessonType: string;
-  date: Date;
-  time: string;
-  duration: string;
-  skillLevel: string;
-  focusAreas: string[];
-  additionalNotes?: string;
-  price: number;
-  status: 'upcoming' | 'completed' | 'cancelled';
-  zoomLink?: string;
-  meetingId?: string;
-  meetingPassword?: string;
-}
-
-// Mock bookings data - In production, this would come from a database
-const mockBookings: Booking[] = [
-  {
-    id: '1',
-    instructorName: 'Mike Johnson',
-    instructorImage: 'https://images.pexels.com/photos/1300402/pexels-photo-1300402.jpeg?auto=compress&cs=tinysrgb&w=200',
-    lessonType: 'Private Lesson',
-    date: new Date(2025, 9, 5, 9, 0), // Oct 5, 2025, 9:00 AM
-    time: '9:00 AM',
-    duration: '1 hour',
-    skillLevel: 'Intermediate',
-    focusAreas: ['Putting', 'Short Game'],
-    additionalNotes: 'Working on consistency with short putts',
-    price: 120,
-    status: 'upcoming',
-    zoomLink: 'https://zoom.us/j/1234567890?pwd=abc123',
-    meetingId: '123 456 7890',
-    meetingPassword: 'golf2025'
-  },
-  {
-    id: '2',
-    instructorName: 'Sarah Wilson',
-    instructorImage: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200',
-    lessonType: 'Playing Lesson',
-    date: new Date(2025, 9, 8, 14, 0), // Oct 8, 2025, 2:00 PM
-    time: '2:00 PM',
-    duration: '2 hours',
-    skillLevel: 'Advanced',
-    focusAreas: ['Course Management', 'Iron Play', 'Mental Game'],
-    price: 450,
-    status: 'upcoming',
-    zoomLink: 'https://zoom.us/j/9876543210?pwd=xyz789',
-    meetingId: '987 654 3210',
-    meetingPassword: 'proGolf99'
-  },
-  {
-    id: '3',
-    instructorName: 'David Chen',
-    instructorImage: 'https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=200',
-    lessonType: 'Private Lesson',
-    date: new Date(2025, 8, 28, 10, 0), // Sept 28, 2025, 10:00 AM
-    time: '10:00 AM',
-    duration: '1.5 hours',
-    skillLevel: 'Beginner',
-    focusAreas: ['Full Swing', 'Driving'],
-    price: 270,
-    status: 'completed',
-    zoomLink: 'https://zoom.us/j/5555555555?pwd=def456',
-    meetingId: '555 555 5555',
-    meetingPassword: 'swing123'
-  }
-];
-
 const CalendarPage: React.FC<CalendarPageProps> = ({ onNavigate }) => {
   const { } = useAuth();
-  const [bookings, setBookings] = useState<Booking[]>(mockBookings);
+  const { bookings, cancelBooking: cancelBookingContext } = useBookings();
   const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [cancelReason, setCancelReason] = useState('');
@@ -93,11 +23,7 @@ const CalendarPage: React.FC<CalendarPageProps> = ({ onNavigate }) => {
 
   const handleCancelBooking = () => {
     if (selectedBooking) {
-      setBookings(bookings.map(b => 
-        b.id === selectedBooking.id 
-          ? { ...b, status: 'cancelled' as const }
-          : b
-      ));
+      cancelBookingContext(selectedBooking.id);
       setShowCancelModal(false);
       setSelectedBooking(null);
       setCancelReason('');

@@ -9,6 +9,7 @@ import SubscriptionPage from './components/SubscriptionPage';
 import CalendarPage from './components/CalendarPage';
 import ProfilePage from './components/ProfilePage';
 import OnboardingFlow from './components/OnboardingFlow';
+import { BookingProvider } from './contexts/BookingContext';
 
 interface User {
   id: string;
@@ -137,42 +138,44 @@ function App() {
 
   return (
     <AuthProvider>
-      <div className="min-h-screen bg-gray-50">
-        {showOnboarding ? (
-          <OnboardingFlow
-            onComplete={() => {
-              setShowOnboarding(false);
-              setCurrentPage('dashboard');
-            }}
-            onCancel={() => {
-              setShowOnboarding(false);
-              setCurrentPage('landing');
-            }}
-          />
-        ) : (
-          <>
-            <AppContent 
-              currentPage={currentPage} 
-              setCurrentPage={setCurrentPage}
-              openAuth={openAuth}
+      <BookingProvider>
+        <div className="min-h-screen bg-gray-50">
+          {showOnboarding ? (
+            <OnboardingFlow
+              onComplete={() => {
+                setShowOnboarding(false);
+                setCurrentPage('dashboard');
+              }}
+              onCancel={() => {
+                setShowOnboarding(false);
+                setCurrentPage('landing');
+              }}
             />
-            {showAuthModal && (
-              <AuthModal
-                mode={authMode}
-                onClose={() => setShowAuthModal(false)}
-                onSwitch={(mode) => {
-                  if (mode === 'register') {
-                    setShowAuthModal(false);
-                    setShowOnboarding(true);
-                  } else {
-                    setAuthMode(mode);
-                  }
-                }}
+          ) : (
+            <>
+              <AppContent 
+                currentPage={currentPage} 
+                setCurrentPage={setCurrentPage}
+                openAuth={openAuth}
               />
-            )}
-          </>
-        )}
-      </div>
+              {showAuthModal && (
+                <AuthModal
+                  mode={authMode}
+                  onClose={() => setShowAuthModal(false)}
+                  onSwitch={(mode) => {
+                    if (mode === 'register') {
+                      setShowAuthModal(false);
+                      setShowOnboarding(true);
+                    } else {
+                      setAuthMode(mode);
+                    }
+                  }}
+                />
+              )}
+            </>
+          )}
+        </div>
+      </BookingProvider>
     </AuthProvider>
   );
 }

@@ -127,6 +127,19 @@ const QuizPage: React.FC<QuizPageProps> = ({ onNavigate }) => {
     setTimeLeft(0);
   };
 
+  const retakeQuiz = () => {
+    if (selectedQuiz) {
+      const quiz = quizzes.find(q => q.id === selectedQuiz);
+      if (quiz) {
+        setTimeLeft(quiz.timeLimit * 60);
+        setQuizStarted(true);
+        setCurrentQuestion(0);
+        setSelectedAnswers([]);
+        setShowResults(false);
+      }
+    }
+  };
+
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
@@ -300,15 +313,21 @@ const QuizPage: React.FC<QuizPageProps> = ({ onNavigate }) => {
                 
                 <div className="flex justify-center gap-4">
                   <button
-                    onClick={resetQuiz}
-                    className="flex items-center gap-2 bg-gray-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
+                    onClick={retakeQuiz}
+                    className="flex items-center gap-2 bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-emerald-700 transition-colors"
                   >
                     <RotateCcw size={16} />
                     Retake Quiz
                   </button>
                   <button
+                    onClick={resetQuiz}
+                    className="bg-gray-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
+                  >
+                    Try Different Quiz
+                  </button>
+                  <button
                     onClick={() => onNavigate('dashboard')}
-                    className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-emerald-700 transition-colors"
+                    className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
                   >
                     Back to Dashboard
                   </button>
