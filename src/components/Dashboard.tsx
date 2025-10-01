@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart3, BookOpen, Calendar, Award, TrendingUp, Clock, Users, Target, CalendarCheck } from 'lucide-react';
+import { BookOpen, Calendar, Award, TrendingUp, Clock, Target, CalendarCheck } from 'lucide-react';
 import { useAuth } from '../App';
 import Header from './Header';
 

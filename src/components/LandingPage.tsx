@@ -412,7 +412,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
               </div>
               <Quote className="text-emerald-200 mb-4" size={32} />
               <p className="text-gray-700 mb-6 italic">
-                "As a beginner, I was intimidated by golf. GolfPro made learning fun and easy. The instructors 
+                "As a beginner, I was intimidated by golf. DriveOn OS made learning fun and easy. The instructors 
                 are patient and the courses are well-structured. I'm now playing confidently!"
               </p>
               <div className="flex items-center gap-3">
@@ -585,7 +585,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-emerald-600" />
-                  <span>5 Free Courses</span>
+                  <span>3 Free Courses</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-emerald-600" />
@@ -609,7 +609,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
               <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                 <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Premium</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Monthly Membership</h3>
               <p className="text-4xl font-bold text-blue-600 mb-6">$29<span className="text-lg text-gray-600">/month</span></p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2">
@@ -630,18 +630,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
                 </li>
               </ul>
               <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                Choose Premium
+                Start Monthly
               </button>
             </div>
 
             {/* Pro */}
             <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-amber-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Pro</h3>
-              <p className="text-4xl font-bold text-amber-600 mb-6">$99<span className="text-lg text-gray-600">/month</span></p>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Annual Membership</h3>
+              <p className="text-4xl font-bold text-amber-600 mb-6">$219<span className="text-lg text-gray-600">/year</span></p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-amber-600" />
-                  <span>Everything in Premium</span>
+                  <span>Everything in Monthly Membership</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-amber-600" />
@@ -657,7 +657,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
                 </li>
               </ul>
               <button className="w-full bg-amber-600 text-white py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors">
-                Go Pro
+                Choose Annual
               </button>
             </div>
           </div>

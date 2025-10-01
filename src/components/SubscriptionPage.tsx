@@ -33,7 +33,7 @@ const SubscriptionPage: React.FC<SubscriptionPageProps> = ({ onNavigate }) => {
     },
     {
       id: 'premium',
-      name: 'Premium',
+      name: 'Monthly',
       price: 29,
       period: '/month',
       description: 'Most popular choice',
@@ -52,14 +52,14 @@ const SubscriptionPage: React.FC<SubscriptionPageProps> = ({ onNavigate }) => {
     },
     {
       id: 'pro',
-      name: 'Pro',
-      price: 99,
-      period: '/month',
+      name: 'Annual',
+      price: 219,
+      period: '/year',
       description: 'For serious golfers',
       icon: Crown,
       color: 'amber',
       features: [
-        'Everything in Premium',
+        'Everything in Monthly',
         'Unlimited Lessons',
         'Personal Golf Coach',
         'Custom Training Plans',
