@@ -50,11 +50,28 @@ interface AuthProviderProps {
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
+  
   const login = (email: string, _password: string) => {
-    // Mock authentication
+    // Extract name from email and capitalize it properly
+    const emailName = email.split('@')[0];
+    const nameParts = emailName.split(/[._-]/);
+    
+    // Separate first and last name
+    const firstName = nameParts[0] 
+      ? nameParts[0].charAt(0).toUpperCase() + nameParts[0].slice(1).toLowerCase()
+      : '';
+    
+    const lastName = nameParts[1] 
+      ? nameParts[1].charAt(0).toUpperCase() + nameParts[1].slice(1).toLowerCase()
+      : '';
+    
+    // Combine first and last name
+    const fullName = lastName ? `${firstName} ${lastName}` : firstName;
+    
+    // Create user with name derived from email
     setUser({
-      id: '1',
-      name: 'John Doe',
+      id: email,
+      name: fullName,
       email,
       subscription: 'free',
       profilePicture: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200'
@@ -62,9 +79,9 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const register = (name: string, email: string, _password: string) => {
-    // Mock registration
+    // Use the provided name from registration
     setUser({
-      id: '1',
+      id: email,
       name,
       email,
       subscription: 'free',

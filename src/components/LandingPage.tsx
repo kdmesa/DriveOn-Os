@@ -1,5 +1,5 @@
-import React from 'react';
-import { Play, Star, Users, Trophy, ArrowRight, CheckCircle, Target, BarChart, Calendar, Award, Quote, Clock, Shield, TrendingUp, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Play, Star, Users, Trophy, ArrowRight, CheckCircle, Target, BarChart, Calendar, Award, Quote, Clock, Shield, TrendingUp, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Eye, Compass, Lightbulb, X } from 'lucide-react';
 import Header from './Header';
 
 interface LandingPageProps {
@@ -8,6 +8,8 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
+  const [showVideoModal, setShowVideoModal] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white">
       <Header onNavigate={onNavigate} openAuth={openAuth} />
@@ -49,7 +51,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
             >
               Start Free Trial
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-emerald-600 transition-all flex items-center justify-center gap-2 shadow-lg">
+            <button 
+              onClick={() => setShowVideoModal(true)}
+              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-emerald-600 transition-all flex items-center justify-center gap-2 shadow-lg"
+            >
               <Play size={20} />
               Watch Demo
             </button>
@@ -68,6 +73,96 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
               <Trophy size={16} className="text-emerald-400" />
               <span>Trusted by PGA Pros</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission, Vision, and Positioning Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Purpose & Direction
+            </h2>
+            <p className="text-xl text-gray-600">
+              Transforming golf training through innovation and excellence
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Mission Card */}
+            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 border-t-4 border-emerald-600">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-full flex items-center justify-center">
+                  <Target className="text-white" size={32} />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 text-center mb-4">Our Mission</h3>
+              <p className="text-gray-700 text-center leading-relaxed">
+              Help busy adult golfers gain measurable speed and play pain-safe in 10–20 minutes/day with a proven operating system (OS), coach-led momentum, and community.
+              </p>
+            </div>
+
+            {/* Vision Card */}
+            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 border-t-4 border-blue-600">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center">
+                  <Eye className="text-white" size={32} />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 text-center mb-4">Our Vision</h3>
+              <p className="text-gray-700 text-center leading-relaxed">
+              The default golf performance platform—consumer-first membership, coach network (DCC), and club licensing that ties training to outcomes (mph, pain, score).
+              </p>
+            </div>
+
+            {/* Positioning Card */}
+            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2 border-t-4 border-purple-600">
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center">
+                  <Compass className="text-white" size={32} />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 text-center mb-4">Our Positioning</h3>
+              <p className="text-gray-700 text-center leading-relaxed">
+              Golf-first, measurable outcomes, minimal time. Annual membership as the spine; cohorts, certification, and B2B licensing drive ARPU and defensibility.
+              </p>
+            </div>
+          </div>
+
+          {/* Core Values */}
+          <div className="mt-12 bg-gradient-to-r from-emerald-600 to-blue-600 p-8 rounded-2xl">
+            <h3 className="text-2xl font-bold text-white text-center mb-8">Our Core Values</h3>
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="flex justify-center mb-3">
+                  <Lightbulb className="text-yellow-300" size={32} />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Innovation</h4>
+                <p className="text-emerald-100 text-sm">Constantly evolving with cutting-edge technology</p>
+              </div>
+              <div className="text-center">
+                <div className="flex justify-center mb-3">
+                  <Trophy className="text-yellow-300" size={32} />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Excellence</h4>
+                <p className="text-emerald-100 text-sm">Delivering world-class instruction and results</p>
+              </div>
+              <div className="text-center">
+                <div className="flex justify-center mb-3">
+                  <Users className="text-yellow-300" size={32} />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Community</h4>
+                <p className="text-emerald-100 text-sm">Building a supportive network of passionate golfers</p>
+              </div>
+              <div className="text-center">
+                <div className="flex justify-center mb-3">
+                  <BarChart className="text-yellow-300" size={32} />
+                </div>
+                <h4 className="text-white font-semibold mb-2">Results</h4>
+                <p className="text-emerald-100 text-sm">Focused on measurable improvement and success</p>
+              </div>
             </div>
           </div>
         </div>
@@ -724,6 +819,47 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigate, openAuth }) => {
           </div>
         </div>
       </footer>
+
+      {/* Video Modal */}
+      {showVideoModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black bg-opacity-75 p-4">
+          <div className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowVideoModal(false)}
+              className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors shadow-lg"
+            >
+              <X size={24} className="text-gray-700" />
+            </button>
+            
+            {/* Video Container */}
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube.com/embed/me5gjIUe1Ks?autoplay=1"
+                title="DriveOn OS Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            
+            {/* Modal Footer */}
+            <div className="p-6 bg-gray-50">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Transform Your Golf Game</h3>
+              <p className="text-gray-600 mb-4">See how DriveOn OS helps golfers improve their performance with our proven system.</p>
+              <button
+                onClick={() => {
+                  setShowVideoModal(false);
+                  openAuth('register');
+                }}
+                className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+              >
+                Start Your Free Trial Today
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

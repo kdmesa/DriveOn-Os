@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, openAuth }) => {
             onClick={() => onNavigate('landing')}
           >
             <div className="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">G</span>
+              <span className="text-white font-bold text-sm">D</span>
             </div>
             <span className="text-xl font-bold text-gray-900">DriveOn OS</span>
           </div>
